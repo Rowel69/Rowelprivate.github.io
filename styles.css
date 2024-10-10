@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: grey; /* Overall background color */
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #d3d3d3; /* Light grey background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px; /* Rounded corners */
+    width: calc(100% - 60px); /* Full width with slightly less space on sides */
+    margin: 15px auto; /* Slightly reduced margin */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+    transition: transform 0.3s ease; /* Smooth transition for expansion */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black; /* Black text color */
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 10px; /* Padding for better clickability */
+    display: block; /* Block to allow padding to work */
+}
+
+nav ul li:hover {
+    transform: scale(1.1); /* Expand slightly on hover */
+}
+
+.login-btn {
+    background-color: #006400; /* Darker green */
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 15px; /* Match corner curves with the navigation bar */
+    position: relative; /* Use relative positioning */
+    left: -15px; /* Move the login button 30px to the left */
+    transition: transform 0.3s ease; /* Smooth transition for expansion */
+}
+
+.login-btn:hover {
+    transform: scale(1.1); /* Expand slightly on hover */
+}
+
+/* Logo Section with Badges */
+.logo-section {
+    background-color: #003300; /* Darker green */
+    padding: 15px 0; /* Reduced height */
+    text-align: center;
+    border-radius: 15px; /* Rounded corners */
+    width: calc(100% - 60px); /* Full width with slightly less space on sides */
+    margin: 15px auto; /* Slightly reduced margin */
+    position: relative; /* For badges */
+}
+
+.logo-section img.logo {
+    max-width: 250px; /* Logo size */
+    transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.logo-section img.logo:hover {
+    transform: scale(1.1); /* Expand logo on hover */
+}
+
+/* Badge images on both sides */
+.logo-section img.badge-left { /* for left badge */
+    position: absolute;
+    left: 20px; /* Move left badge 20px from the left */
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 100px; /* Badge size */
+    height: auto;
+}
+
+.logo-section img.badge-right { /* for right badge */
+    position: absolute;
+    right: 20px; /* Move right badge 20px from the right */
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 100px; /* Badge size */
+    height: auto;
+}
+
+/* Image container styles */
+.image-container {
+    position: relative;
+    width: calc(100% - 60px); /* Full width to match other rectangles */
+    height: 600px; /* Set height to maintain the aspect ratio */
+    margin: 20px auto; /* Center the container */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 15px; /* Rounded corners */
+    background-color: white; /* White background for the rectangle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image styles */
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Start off the right side */
+    width: auto;
+    height: 100%; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits inside the container */
+    transition: left 1s ease-in-out; /* Smooth transition for sliding effect */
+}
+
+.image-container img.active {
+    left: 0; /* Slide the active image to the center */
+}
+
+/* Rectangle Container Styles */
+.rectangle-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between rectangles */
+    width: calc(100% - 60px); /* Full width to match other rectangles */
+    margin: 20px auto; /* Center the container */
+}
+
+/* Rectangle Styles */
+.rectangle {
+    background-color: white; /* White background for rectangles */
+    border-radius: 15px; /* Rounded corners */
+    padding: 40px; /* Increased padding for larger rectangles */
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    font-size: 24px; /* Increased font size for content */
+}
+
+.rectangle:hover {
+    transform: scale(1.05); /* Expand slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+        

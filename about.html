@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: grey; /* Overall background color */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #d3d3d3; /* Light grey background */
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px; /* Rounded corners */
+            width: calc(100% - 60px); /* Full width with slightly less space on sides */
+            margin: 15px auto; /* Slightly reduced margin */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            transition: transform 0.3s ease; /* Smooth transition for expansion */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black; /* Black text color */
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 10px; /* Padding for better clickability */
+            display: block; /* Block to allow padding to work */
+        }
+
+        nav ul li:hover {
+            transform: scale(1.1); /* Expand slightly on hover */
+        }
+
+        .login-btn {
+            background-color: #006400; /* Darker green */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 15px; /* Match corner curves with the navigation bar */
+            position: relative; /* Use relative positioning */
+            left: -15px; /* Move the login button 30px to the left */
+            transition: transform 0.3s ease; /* Smooth transition for expansion */
+        }
+
+        .login-btn:hover {
+            transform: scale(1.1); /* Expand slightly on hover */
+        }
+
+        /* Logo Section with Badges */
+        .logo-section {
+            background-color: #003300; /* Darker green */
+            padding: 15px 0; /* Reduced height */
+            text-align: center;
+            border-radius: 15px; /* Rounded corners */
+            width: calc(100% - 60px); /* Full width with slightly less space on sides */
+            margin: 15px auto; /* Slightly reduced margin */
+            position: relative; /* For badges */
+        }
+
+        .logo-section img.logo {
+            max-width: 250px; /* Logo size */
+            transition: transform 0.3s ease; /* Smooth transition for expansion */
+        }
+
+        .logo-section img.logo:hover {
+            transform: scale(1.1); /* Expand slightly on hover */
+        }
+
+        /* Badge images on both sides */
+        .logo-section img.badge-left { /* for left badge */
+            position: absolute;
+            left: 20px; /* Move left badge 20px from the left */
+            top: 50%;
+            transform: translate(0, -50%);
+            max-width: 100px; /* Badge size */
+            height: auto;
+        }
+
+        .logo-section img.badge-right { /* for right badge */
+            position: absolute;
+            right: 20px; /* Move right badge 20px from the right */
+            top: 50%;
+            transform: translate(0, -50%);
+            max-width: 100px; /* Badge size */
+            height: auto;
+        }
+
+        /* Image container styles */
+        .image-container {
+            position: relative;
+            width: calc(100% - 60px); /* Full width to match other rectangles */
+            height: 600px; /* Set height to maintain the aspect ratio */
+            margin: 20px auto; /* Center the container */
+            overflow: hidden; /* Hide overflow */
+            border-radius: 15px; /* Rounded corners */
+            background-color: white; /* White background for the rectangle */
+        }
+
+        /* Image styles */
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0; /* All images start at the same position */
+            width: 100%; /* Take full width of the container */
+            height: 100%; /* Full height of the container */
+            object-fit: cover; /* Ensure the image fits inside the container */
+            opacity: 0; /* Start with all images hidden */
+            transition: opacity 1s ease-in-out; /* Smooth transition for opacity */
+        }
+
+        /* Show the first image */
+        .image-container img:first-child {
+            opacity: 1; /* First image is visible */
+        }
+
+        /* Keyframes for cycling images */
+        @keyframes slide {
+            0%, 20% { opacity: 1; } /* Show the image from 0% to 20% of the animation */
+            25%, 100% { opacity: 0; } /* Hide the image from 25% to 100% */
+        }
+
+        /* Animate each image */
+        .image-container img:nth-child(1) {
+            animation: slide 20s infinite; /* Animation duration for the first image */
+        }
+
+        .image-container img:nth-child(2) {
+            animation: slide 20s infinite 5s; /* Animation for the second image starts after the first */
+        }
+
+        .image-container img:nth-child(3) {
+            animation: slide 20s infinite 10s; /* Animation for the third image starts after the second */
+        }
+
+        .image-container img:nth-child(4) {
+            animation: slide 20s infinite 15s; /* Animation for the fourth image starts after the third */
+        }
+
+        /* About Section */
+        .about-section {
+            margin: 20px auto; /* Center the section */
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo Section with Badges -->
+    <div class="logo-section">
+        <img src="badge1.png" alt="Badge Left" class="badge-left">
+        <img src="logo.png" alt="Logo" class="logo">
+        <img src="badge2.png" alt="Badge Right" class="badge-right">
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Learning</a></li>
+            <li><a href="#">Hall of Fame</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <a href="#" class="login-btn">Login</a>
+    </nav>
+
+    <!-- Image Scrolling Section -->
+    <div class="image-container">
+        <img src="image1.jpg" alt="Image 1" id="image1">
+        <img src="image2.jpg" alt="Image 2" id="image2">
+        <img src="image3.jpg" alt="Image 3" id="image3">
+        <img src="image4.jpg" alt="Image 4" id="image4">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Dynamic Webpage. All rights reserved.
+    </footer>
+
+</body>
+</html>
